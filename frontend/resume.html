@@ -1,0 +1,207 @@
+<html>
+    <head>
+        <title> Resume</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+	body{
+            background:linear-gradient(to right,#EFF2F7,#D0D9E8);
+        }
+        
+         h3{
+            color:#7879C9;
+        }
+        #dash{
+            border-color:#7879C9;
+            color:#7879C9;
+            border-radius:20px;
+            margin-left:100px;
+            padding:5px;
+            width:150px;
+        }
+        #add{
+            background:#EFE7FC;
+            color:#8791DB;
+            border-radius:20px;
+            border-color:#EFE7FC;
+            width:400px;
+        }
+        .section-title{
+            border-bottom:3px solid blue;
+            width:260px;
+            display:inline-block;
+            padding:5px;
+        }
+        .edu{
+            border-bottom:3px solid blue;
+            width:130px;
+            display:inline-block;
+            padding:5px;
+        }
+        .tech{
+            border-bottom:3px solid blue;
+            width:200px;
+            display:inline-block;
+            padding:5px;
+        }
+        .lan{
+            border-bottom:3px solid blue;
+            width:130px;
+            display:inline-block;
+            padding:5px;
+        }
+        .lans{
+            border-bottom:3px solid blue;
+            width:150px;
+            display:inline-block;
+            padding:5px;
+        }
+.header{
+    padding:20px;
+    color:white;
+    background:#667EEA;
+
+}
+.card{
+    border-radius:20px;
+    border:none;
+}
+ #save{
+            background:linear-gradient(to right,#6B6FD3,#CC7EE0);
+            border-color:#6B6FD3 ;
+            color:white;
+            border-radius:30px;
+            margin-left:50px;
+        }
+       
+        </style>
+        </head>
+        <body>
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3> 🖋️Resume Builder</h3>
+                    </div>
+                    <div class="col-md-2">
+                      <button onclick="dashboard()" id="dash"> ←Dashboard</button>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-6">
+                        <div class="card p-3">
+                            <h5> Fill your professional Details</h5>
+                            <input type="text" id="name" placeholder="Full name (eg.,John Doe)" class="form-control mt-3" onkeyup = "showtext()">
+                            <input type="text" id="title" placeholder="Professional Title (eg.,Senior Frontend Developer)" class="form-control mt-3" onkeyup = "showtext()">
+                            <textarea class="form-control mt-3" placeholder="Proffessional Summary-Highlight your Experience,skills and achievements..." rows ="3" id="summary" onkeyup = "showtext()"></textarea>
+                             <input type="text" id="education" placeholder="Education(eg.,B.S.C Computer Science,Stanford University..)" class="form-control mt-3" onkeyup = "showtext()">
+                             <input type="text" id="skills" placeholder="Skills(eg., React,Python,Nodejs,AWS...)" class="form-control mt-3" onkeyup = "showtext()">
+                             <textarea class="form-control mt-3" placeholder="Experience / Internship (eg., Software Engineer@ Google | 2022-present | Led Development of...)" rows ="3" id="experience" onkeyup = "showtext()"></textarea>
+                             <input type="text" id="language" placeholder="Languages(eg., English - Fluent, Spanish - intermediate...)" class="form-control mt-3" onkeyup = "showtext()">
+                             <div id="adds" class="mt-3"></div>
+                             <div id="certificatebox" style="display:none;">
+                             <div class="row">
+                                <div class="col-md-4">
+                                <input type="text" placeholder="certificate" class="form-control" id="certificate"  onkeyup="showtext()">
+                                </div>
+                                <div class="col-md-4">
+                                <textarea class="form-control" placeholder="Details" id="detail" rows="2" onkeyup="showtext()" onclick="display()"></textarea>
+                             </div>
+                             <div class="col-md-4">
+                                <button onclick="deleteitem()">🗑️</button>
+
+                             </div>
+                             </div>
+                             </div>
+                             <button onclick="add()" class="mt-3" id="add">+ Add Custom Field (certifications,projects,etc.)</button>
+                             
+                             <h4 class="mt-3">Acent color</h4>
+                             <input type="color" id="accentcolor" value="#5a67d8" onchange="changecolor(this.value)">
+                            <button onclick="save()" class="mt-4" id="save">Save Resume</button>
+                        </div>
+                        
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card p-3">
+                            <div id="header" class="header">
+                                <h1 id="names"> Your Name </h1>
+                                <p id="titles"> Job Title</p>
+                            </div>
+                            <h5 class="section-title"> PROFFESIONAL SUMMARY</h5>
+                            <p id="summarys" class="mt-3"> Professional Summary appear here.</p>
+                             <h5 class="edu"> EDUCATION</h5>
+                            <p id="educations" class="mt-3"> - </p>
+                            <h5 class="tech"> TECHNICAL SKILLS</h5>
+                            <p id="skillss" class="mt-3"> - </p>
+                             <h5 class="tech"> WORK EXPERIENCE</h5>
+                            <p id="experiences" class="mt-3"> - </p>
+                            <h5 class="lan"> LANGUAGES</h5>
+                            <p id="languages" class="mt-3"> - </p>
+                            <div id="certificates" style="display:none;">
+                            <h5 class="lans" id="certifiy"> CERTIFICATION </h5>
+                            <p id="details" class="mt-3"> - </p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           <script>
+            function add(){
+                document.getElementById("certificatebox").style.display = "block";
+                document.getElementById("certificates").style.display = "block";
+            }
+             function display(){
+                document.getElementById("certificate").style.display = "block";
+            }
+            function deleteitem(){
+                document.getElementById("certificate").innerHTML = "";
+
+            }
+            function changecolor(color){
+                document.getElementById("header").style.backgroundColor = color;
+				
+            }
+            function dashboard(){
+                window.location.href = "dashboard.html";
+            }
+            function save(){
+                alert("Saved your resume successfully");
+            }
+            async function showtext() {
+            let name = document.getElementById("name").value;
+             let title = document.getElementById("title").value;
+              let summary = document.getElementById("summary").value;
+               let education = document.getElementById("education").value;
+                let skills = document.getElementById("skills").value;
+                 let experience = document.getElementById("experience").value;
+                  let language = document.getElementById("language").value;
+                   let certificate = document.getElementById("certificate").value;
+                    let detail = document.getElementById("detail").value;
+            let response = await fetch(`http://localhost:8080/showtext?name=${name}&title=${title}&summary=${summary}&education=${education}&skills=${skills}&experience=${experience}&language=${language}&certificate=${certificate}&detail=${detail}`);
+            let data = await response.json();
+           loadresume();
+          
+             
+            }
+        async function loadresume() {
+            let response = await fetch(`http://localhost:8080/resumedetail`);
+            let data = await response.json();
+            console.log(data);
+       
+            for(let t of data){
+                document.getElementById("names").innerHTML = t.name;
+                 document.getElementById("titles").innerHTML = t.title;
+                  document.getElementById("summarys").innerHTML = t.summary;
+                   document.getElementById("educations").innerHTML = t.education;
+             document.getElementById("skillss").innerHTML = t.skills;
+              document.getElementById("experiences").innerHTML = t.experience;
+               document.getElementById("languages").innerHTML = t.language;
+                
+            }
+                
+            
+        }
+        loadresume();
+           
+           </script>
+
+        </body>
+        </html>
