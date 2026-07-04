@@ -61,14 +61,14 @@ Resume-Builder/
 ### Dashboard
 ![Dashboard](screenshots/dashboard%20page.jpg)
 
-### Add Train Page
-![Add Train Page](screenshots/add%20page.jpg)
+### Resume Page
+![Resume Page](screenshots/resume%20page.jpg)
 
-### Schedule Page
-![Schedule Page](screenshots/schedule%20page.jpg)
+### History Page
+![History Page](screenshots/history%20page.jpg)
 
-### Book Ticket Page
-![Book Ticket Page](screenshots/book%20ticket%20page.jpg)
+### JobPortal Page
+![JobPortal Page](screenshots/jobportal%20page.jpg)
 
 ## 👩‍💻 Author
 
