@@ -1,0 +1,292 @@
+<html>
+    <head>
+        <title>Job Portal</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body{
+            background:linear-gradient(to right,#EFF2F7,#D0D9E8);
+        }
+         h3{
+            color:#6E64C5;
+        }
+        #navbar{
+            border-radius:30px;
+        }
+         #dash{
+            border-color:#7879C9;
+            color:#7879C9;
+            border-radius:20px;
+            margin-left:100px;
+            padding:5px;
+            width:150px;
+        }
+        #search{
+            width:300px;
+            margin-left:20px;
+        }
+        #type{
+            width:300px;
+            margin-right:300px;
+           
+        }
+        #reset{
+            background: #C4CEF5;
+            border-color:#C4CEF5;
+            background:white;
+            border-radius:20px;
+            width:150px;
+            color:#C4CEF5;
+            margin-right:50px;
+          
+            
+        }
+        #apply{
+           
+            background:linear-gradient(to right,#6A71D9,#7358B3) ;
+            color:white; 
+            border-color:#6A71D9 ;
+            border-radius:20px;
+        
+        }
+        .card{
+            border-radius:20px;
+            border:none;
+			
+        }
+		#cardcontainer{
+		display:flex;
+		flex-wrap:wrap;
+		}
+		
+        
+        </style>
+        </head>
+        <body>
+             <div class="container">
+                <div class="row mt-5">
+                    <div class="col-md-8">
+                        <h3> 🔍 IT Job Portal</h3>
+                    </div>
+                    <div class="col-md-4">
+                        <button onclick="dashboard()" id="dash">Dashboard</button>
+                    </div>
+                    <nav class="navbar bg-white mt-5">
+                        
+                        <input type="text" placeholder=" 🔍 Search by job title,company..." id="search" class="form-control">
+                        <select id="type" class="form-select" onchange="filterjob()">
+                            <option value ="all">All Job Types</option>
+                            <option value ="full-time">Full-Time</option>
+                            <option value ="part-time">Part-Time</option>
+                            <option value ="contract">Contract</option>
+                            <option value ="remote">Remote</option>
+                            <option value ="hybrid">Hybrid</option>
+                            <option value ="onsite">Onsite</option>
+                        </select>
+                        <button onclick="reset()" id="reset">⟲ Reset Filters</button>  
+                    </nav>
+                    <div class="row mt-5" id="cardcontainer">
+                        <div class="col-md-4">
+                            <div class="card p-4" data-type="full-time">
+                                <h1>🚀</h1>
+                                <h5> Senior Frontend Developer</h5>
+                                <p>TechStack</p>
+                                <P> 📍 Remote</P>
+                                <p> ⏱️ Full-Time</p>
+                                <p class="text-success">$$120k-160k</p>
+                                <button onclick="apply()" id="apply"> ✈️ Apply Now</button>
+                            </div>
+                        </div>
+                         <div class="col-md-4">
+                            <div class="card p-4" data-type="full-time">
+                                <h1>⚙️</h1>
+                                <h5>Backend Engineer (Node.js)</h5>
+                                <p>DataCore</p>
+                                <P> 📍 New york,NY</P>
+                                <p> ⏱️ Full-Time</p>
+                                <p class="text-success">$$130k-170k</p>
+                                <button onclick="apply()" id="apply"> ✈️ Apply Now</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card p-4" data-type="hybrid">
+                                <h1>💻</h1>
+                                <h5>Full Stack Developer</h5>
+                                <p>Webify</p>
+                                <P> 📍San Francisco,CA</P>
+                                <p> ⏱️ Hybrid</p>
+                                <p class="text-success">$$140k-180k</p>
+                                <button onclick="apply()" id="apply"> ✈️ Apply Now</button>
+                            </div>
+                        </div>
+                         <div class="col-md-4 mt-3">
+                            <div class="card p-4" data-type="full-time">
+                                <h1>☁️</h1>
+                                <h5>Devops Engineeer</h5>
+                                <p>CloudScale</p>
+                                <P> 📍Austin,TX</P>
+                                <p> ⏱️ Full-Time</p>
+                                <p class="text-success">$$125k-160k</p>
+                                <button onclick="apply()" id="apply"> ✈️ Apply Now</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mt-3">
+                            <div class="card p-4" data-type="contract">
+                                <h1>🤖</h1>
+                                <h5>Data Scientist</h5>
+                                <p>AI Labs</p>
+                                <P> 📍Remote</P>
+                                <p> ⏱️ Contract</p>
+                                <p class="text-success">$$150k-200k</p>
+                                <button onclick="apply()" id="apply"> ✈️ Apply Now</button>
+                            </div>
+                        </div>
+                         <div class="col-md-4 mt-3">
+                            <div class="card p-4" data-type="full-time">
+                                <h1>🔒</h1>
+                                <h5>Cybersecurity Analyst</h5>
+                                <p>Secure Net</p>
+                                <P> 📍Washington,DC</P>
+                                <p> ⏱️ Full-Time</p>
+                                <p class="text-success">$$110k-145k</p>
+                                <button onclick="apply()" id="apply"> ✈️ Apply Now</button>
+                            </div>
+                        </div>
+                         <div class="col-md-4 mt-3">
+                            <div class="card p-4" data-type="full-time">
+                                <h1>📱</h1>
+                                <h5>Mobile Developer(Flutter)</h5>
+                                <p>App Craft</p>
+                                <P> 📍Seattle,WA</P>
+                                <p> ⏱️ Full-Time</p>
+                                <p class="text-success">$$115k-155k</p>
+                                <button onclick="apply()" id="apply"> ✈️ Apply Now</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mt-3" >
+                            <div class="card p-4" data-type="remote">
+                                <h1>🏗️</h1>
+                                <h5>Cloud Architect</h5>
+                                <p>AWS Partner</p>
+                                <P> 📍Remote</P>
+                                <p> ⏱️Remote</p>
+                                <p class="text-success">$$160k-210k</p>
+                                <button onclick="apply()" id="apply"> ✈️ Apply Now</button>
+                            </div>
+                        </div>
+                         <div class="col-md-4 mt-3">
+                            <div class="card p-4" data-type="part-time">
+                                <h1>🎨</h1>
+                                <h5>UI/UX Designer</h5>
+                                <p>CreativeMinds</p>
+                                <P> 📍Los Angeles,CA</P>
+                                <p> ⏱️Part-Time</p>
+                                <p class="text-success">$$80k-110k</p>
+                                <button onclick="apply()" id="apply"> ✈️ Apply Now</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mt-3">
+                            <div class="card p-4" data-type="full-time">
+                                <h1>📊</h1>
+                                <h5>Product Manager(Tech)</h5>
+                                <p>Innovate</p>
+                                <P> 📍Chicago,IL</P>
+                                <p> ⏱️FullTime</p>
+                                <p class="text-success">$$140k-185k</p>
+                                <button onclick="apply()" id="apply"> ✈️ Apply Now</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mt-3">
+                            <div class="card p-4" data-type="full-time">
+                                <h1>🧪</h1>
+                                <h5>QA Automation Engineer</h5>
+                                <p>TestSoft</p>
+                                <P> 📍Remote</P>
+                                <p> ⏱️FullTime</p>
+                                <p class="text-success">$$90k-120k</p>
+                                <button onclick="apply()" id="apply"> ✈️ Apply Now</button>
+                            </div>
+                        </div>
+                         <div class="col-md-4 mt-3">
+                            <div class="card p-4" data-type="onsite">
+                                <h1>🛠️</h1>
+                                <h5>IT Support Specialist</h5>
+                                <p>HelpDesk Inc</p>
+                                <P> 📍Boston,MA</P>
+                                <p> ⏱️Onsite</p>
+                                <p class="text-success">$$65k-85k</p>
+                                <button onclick="apply()" id="apply"> ✈️ Apply Now</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mt-3">
+                            <div class="card p-4" data-type="full-time">
+                                <h1>🧠</h1>
+                                <h5>ML Engineer</h5>
+                                <p>NeuralWave</p>
+                                <P> 📍Remote</P>
+                                <p> ⏱️Full-Time</p>
+                                <p class="text-success">$$150k-200k</p>
+                                <button onclick="apply()" id="apply"> ✈️ Apply Now</button>
+                            </div>
+                        </div>
+                         <div class="col-md-4 mt-3">
+                            <div class="card p-4" data-type="full-time">
+                                <h1>📱 </h1>
+                                <h5>Database Administrator</h5>
+                                <p>DataGuard</p>
+                                <P> 📍Dallas,TX</P>
+                                <p> ⏱️Full-Time</p>
+                                <p class="text-success">$$95k-130k</p>
+                                <button onclick="apply()" id="apply"> ✈️ Apply Now</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mt-3">
+                            <div class="card p-4" data-type="contract">
+                                <h1>⛓️ </h1>
+                                <h5>Blockchain Developer</h5>
+                                <p>CryptoSage</p>
+                                <P> 📍Remote</P>
+                                <p> ⏱️Contract</p>
+                                <p class="text-success">$$140k-190k</p>
+                                <button onclick="apply()" id="apply"> ✈️ Apply Now</button>
+                            </div>
+                        </div>  
+                        
+                    </div>
+                </div>
+                <script>
+                    let search = document.getElementById("search");
+                    search.addEventListener("input", function(){
+                        let filter = search.value.toLowerCase();
+                        let cards = document.querySelectorAll(".card");
+                        cards.forEach(function(card){
+                            let text = card.innerText.toLowerCase();
+                            if(text.includes(filter)){
+                                card.style.display = "block";
+                            }
+                            else{
+                                card.style.display = "none";
+                            }
+                        });
+
+                    });
+                    function filterjob(){
+                        let value = document.getElementById("type").value;
+                        let cards = document.querySelectorAll(".card");
+                        cards.forEach(card =>{
+                            let type = card.getAttribute("data-type");
+                            if(value==="all" || value === type){
+                                card.style.display = "block";
+                            }
+                            else{
+                               card.style.display = "none";
+                            }
+                        });
+                    }
+                    function dashboard(){
+                        window.location.href = "dashboard.html";
+                    }
+                   
+                </script>
+
+        </body>
+        </html>
